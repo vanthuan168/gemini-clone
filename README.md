@@ -1,12 +1,57 @@
-# React + Vite
+# Gemini Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a clone of the Gemini interface, utilizing the Gemini API to replicate its functionality.
+![alt text](image.png)
+## Features
 
-Currently, two official plugins are available:
+- **User Interface Clone**: The project replicates the look and feel of the original Gemini interface.
+- **Text Input and Request Handling**:
+  - Users can enter text in the search box.
+  - The "Send" button will appear once text is entered.
+  - Clicking the "Send" button will send the request to the Gemini API.
+- **Basic Responsiveness**: The UI is optimized for mobile devices.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/vanthuan168/gemini-clone.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd gemini-clone
+   ```
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
+4. Set up environment variables:
+   - Create a `.env` file in the root directory.
+   - Add the following line to store your Gemini API key:
+     ```sh
+     VITE_API_KEY=<your_api_key_here>
+     ```
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Usage
+
+1. Start the application:
+   ```sh
+   npm run dev
+   ```
+2. Open the application in your browser.
+3. Enter text in the search box and click the "Send" button to interact with the Gemini API.
+
+## Technologies Used
+
+- **Frontend**: React.js, HTML, CSS
+- **API**: Gemini API
+- **Styling**: CSS 
+
+## Future Improvements
+
+- Enhanced mobile responsiveness
+- Better error handling for API requests
+- UI/UX improvements
+- Implementing additional Gemini API features
+
+
