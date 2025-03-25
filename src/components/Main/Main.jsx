@@ -7,6 +7,18 @@ import ReactMarkdown from 'react-markdown'
 const Main = () => {
     const {onSent, recentPrompt, showResult, loading, resultData, setInput, input} = useContext(Context)
 
+    const handleKeyDown = (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault(); // Ngăn form tự động submit (nếu có)
+          onSent(); // Gọi hàm xử lý gửi dữ liệu
+        }
+    };
+
+    const clickCard = (e) => {
+        let prompt = e.currentTarget.querySelector("p").innerText
+        setInput(prompt)
+    }
+
     return (
         <div className="main">
             <div className="nav">
@@ -21,19 +33,19 @@ const Main = () => {
                             <p>How I can help you today?</p>
                         </div>
                         <div className="cards">
-                            <div className="card">
+                            <div className="card" onClick={(e) => {clickCard(e)}}>
                                 <p>Suggest beautiful places to see on an upcoming road trip</p>
                                 <img src={assets.compass_icon} alt="" />
                             </div>
-                            <div className="card">
+                            <div className="card" onClick={(e) => {clickCard(e)}}>
                                 <p>Briefly summarize this concepts: urban planning</p>
                                 <img src={assets.bulb_icon} alt="" />
                             </div>
-                            <div className="card">
+                            <div className="card" onClick={(e) => {clickCard(e)}}>
                                 <p>Brainstorm team bonding activities for our work retreat</p>
                                 <img src={assets.message_icon} alt="" />
                             </div>
-                            <div className="card">
+                            <div className="card" onClick={(e) => {clickCard(e)}}>
                                 <p>Improve the readability of the following code</p>
                                 <img src={assets.code_icon} alt="" />
                             </div>
@@ -62,11 +74,11 @@ const Main = () => {
                 
             <div className="main-bottom">
                 <div className="search-box">
-                    <input onChange={(e) => setInput(e.target.value)} value={input} type="text" placeholder="Enter a prompt here" />
+                    <input onChange={(e) => setInput(e.target.value)} value={input} type="text" placeholder="Enter a prompt here" onKeyDown={handleKeyDown} />
                     <div>
-                        <img src={assets.gallery_icon} alt="" />
-                        <img src={assets.mic_icon} alt="" />
-                        <img onClick={() => onSent(input)} src={assets.send_icon} alt="" />
+                        {/* <img src={assets.gallery_icon} alt="" /> */}
+                        {/* <img src={assets.mic_icon} alt="" /> */}
+                        {input?<img onClick={() => onSent()} src={assets.send_icon} alt="" />:null}
                     </div>
                 </div>
                 <p className="bottom-info">
